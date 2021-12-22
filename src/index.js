@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PostsOrderContextProvider } from './context/postsOrderContext';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <PostsOrderContextProvider>
     <App />
-  </React.StrictMode>,
+  </PostsOrderContextProvider>,
   document.getElementById('root')
 );
 
