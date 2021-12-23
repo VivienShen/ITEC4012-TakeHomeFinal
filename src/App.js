@@ -7,6 +7,7 @@ import {
 import { Navbar } from './components/Navbar';
 import { PostsHomePage } from './components/pages/PostsHomePage';
 import { ShoppingCartPage } from './components/pages/ShoppingCartPage';
+import { LoginPage } from './components/pages/LoginPage';
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
            <ShoppingCartPage />
         </Route>
         <Route path="/post/:id">
-          <div>Individual Post Details</div>
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
       </Switch>
     </Router>

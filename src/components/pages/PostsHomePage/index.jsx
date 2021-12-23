@@ -6,8 +6,6 @@ import PostsOrderContext from "../../../context/postsOrderContext";
 export const PostsHomePage = () => {
   
   const [posts, setPosts] = useState([]);
-
-  const globalState = useContext(PostsOrderContext);
   
   useEffect(
     () => {
