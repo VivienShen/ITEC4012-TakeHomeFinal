@@ -2,7 +2,6 @@ import {
     NavLink
 } from "react-router-dom";
 
-import { FaStore, FaShoppingCart} from 'react-icons/fa';
 import { Logout } from "../Logout"
 
 import "./styles.css"
@@ -15,7 +14,7 @@ export const Navbar = () => {
                     <NavLink exact={true} activeClassName="nav-selected" to="/">Posts</NavLink>
                 </li>
                 <li>
-                    <NavLink activeClassName="nav-selected" to="/cart"> My Cart</NavLink>
+                    <NavLink activeClassName="nav-selected" to="/me"> My Profile</NavLink>
                 </li>
                 <li>
                     <Logout />

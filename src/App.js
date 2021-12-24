@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
 import { PostsHomePage } from './components/pages/PostsHomePage';
-import { ShoppingCartPage } from './components/pages/ShoppingCartPage';
+import { ProfilePage } from './components/pages/ProfilePage';
 import { LoginPage } from './components/pages/LoginPage';
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         <Route exact path="/">
           <PostsHomePage />
         </Route>
-        <Route path="/cart">
-           <ShoppingCartPage />
+        <Route path="/me">
+           <ProfilePage />
         </Route>
         <Route path="/post/:id">
         </Route>
