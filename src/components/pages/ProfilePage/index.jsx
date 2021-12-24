@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { PostItem } from "../../PostItem";
 import { getAuth, onAuthStateChanged} from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import "./styles.css";
 export const ProfilePage = () => {
   
   const { register, handleSubmit } = useForm();
-  
+  const [posts, setPosts] = useState([]);
 
   const submitPost = async(formVals) => {
     const auth = getAuth();
@@ -53,13 +54,39 @@ export const ProfilePage = () => {
       })
     }, []
   );
+
+  useEffect(
+    () => {
+      getPosts();
+    }, []
+  );
+
   
+
+  const getPosts = async() => {
+    try {
+      const response = await fetch('https://firestore.googleapis.com/v1/projects/social-media-project-itec4012/databases/(default)/documents/posts')
+      const data = await response.json();
+      console.log(data);
+      const formattedData = data.documents.map( (item) => {
+        return item.fields
+      });
+
+      console.log(formattedData);
+      setPosts(formattedData);
+
+    } catch(err) {
+      console.log (err)
+    }
+  }
+
   return (
     <div className="posts-page">
+      <h1 className="posts-title"> My Profile</h1>
+      
       <form className="form-layout" onSubmit={handleSubmit(submitPost)}>
         <h2>Submit a new post: </h2>
         <br/>
-
         <label htmlFor="text"> What's happening?</label>
         <input name="text" type="text" required {...register('text')}/>
         <label htmlFor="id"> Id</label>
@@ -67,6 +94,14 @@ export const ProfilePage = () => {
         <input type="submit" value="Submit Post"/>
         <br/>
       </form>
+    
+      <div className="posts-container">
+        { 
+          posts.map((post) => (
+            <PostItem key={post.id.stringValue} user={post.user.stringValue} text={post.text.stringValue} id={post.id.stringValue} ></PostItem>
+          ))
+        }
+      </div>
     </div>
   );
 };
