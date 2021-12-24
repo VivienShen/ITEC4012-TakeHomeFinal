@@ -1,7 +1,6 @@
 import "./styles.css";
 import { useEffect, useState, useContext } from 'react';
 import { PostItem } from "../../PostItem";
-import PostsOrderContext from "../../../context/postsOrderContext";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
 
@@ -52,7 +51,7 @@ export const PostsHomePage = () => {
       <div className="posts-container">
         { 
           posts.map((post) => (
-            <PostItem key={post.id.stringValue} name={post.name.stringValue} user={post.user.stringValue} text={post.text.stringValue} id={post.id.stringValue} ></PostItem>
+            <PostItem key={post.id.stringValue} user={post.user.stringValue} text={post.text.stringValue} id={post.id.stringValue} ></PostItem>
           ))
         }
       </div>

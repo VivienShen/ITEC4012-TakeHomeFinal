@@ -8,17 +8,13 @@
     background: #fafafa;
 }
 
-.post-name {
+.post-user {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 5px;
 }
 
-.post-user {
-    color: gray;
-}
-
-.post-text, .post-user{
+.post-text{
     font-size: 1rem;
     padding: 5px; 
 }
