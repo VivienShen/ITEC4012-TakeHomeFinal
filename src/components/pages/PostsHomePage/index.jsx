@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { PostItem } from "../../PostItem";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useHistory } from 'react-router-dom';
